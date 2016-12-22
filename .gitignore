@@ -1,0 +1,7 @@
+*.pyc
+*~
+__pycache__
+lawliet-project
+db.sqlite3
+/static
+.DS_Store
