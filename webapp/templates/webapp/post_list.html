@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Jafar Alim Habibi</title>
 </head>
-<body>
-    <p>Hi there!</p>
-    <p>I'm coming</p>
-
-    <div>
+<div>
         <h1><a href="/">My First Blog using Django</a></h1>
-    </div>
+</div>
 {% for post in posts %}
     <div>
         <p>published: {{ post.published_date }}</p>
@@ -18,7 +11,3 @@
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
 {% endfor %}
-
-
-</body>
-</html>
