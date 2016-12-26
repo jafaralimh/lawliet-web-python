@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Login Page</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Cuprum|Mirza" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/web.css' %}">
+    </head>
+    <body>
+    <div class="page-header-login">
+        <h1><a href="/">Login user</a></h1>
+    </div>
+    <div class="content container">
+        <div class="row1">
+            <div class="col-xs-6 col-sm-4">
+                {% block content %}
+                    {% if form.errors %}
+                        <p>Your username and password didn't match. Please try again.</p>
+                    {% endif %}
+
+                    <form method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                        <div class="form-group">
+                            <td>{{ form.username.label_tag }}</td>
+                            <td>{{ form.username }}</td>
+                        </div>
+                        <div>
+                            <td>{{ form.password.label_tag }}</td>
+                            <td>{{ form.password }}</td>
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Login"/>
+                        <input type="hidden" name="next" value="{{ next }}"/>
+                    </form>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

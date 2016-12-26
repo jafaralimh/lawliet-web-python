@@ -1,4 +1,3 @@
-{#{% extends 'webapp/base.html' %}#}
 {% load staticfiles %}
 <html>
     <head>
@@ -17,13 +16,13 @@
         {% else %}
             <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
         {% endif %}
-        <h1><a href="/">Editing page</a></h1>
+        <h1><a href="/">New comment</a></h1>
     </div>
     {% block content %}
-        <h1>Post</h1>
+        <h1>New comment</h1>
         <form method="POST" class="post-form">{% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="save btn btn-default">Save</button>
+            <button type="submit" class="save btn btn-default">Send as a comment</button>
         </form>
     {% endblock %}
     </body>
